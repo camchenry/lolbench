@@ -57,8 +57,7 @@ anchors:
           paths:
             # go's globbing library makes me sad, no ** for any-length path segments?
             # thankfully we only have two layers in storage atm
-            - "*"
-            - "*/*"
+            - "*/*.json"
 
 jobs:
   fmt:
