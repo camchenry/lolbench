@@ -112,11 +112,14 @@ jobs:
           at: /tmp/lolbench
       - *install_deps
       - run: cargo rebalance-benchmarks --sample-dir /tmp/lolbench
+      - run: cd /tmp && tar -cvzf lolbench-data-dir.tar.gz lolbench
       - *save_cache
       - store_artifacts:
           path: registry.toml
       - store_artifacts:
           path: /tmp/lolbench
+      - store_artifacts:
+          path: /tmp/lolbench-data-dir.tar.gz
 
   brotli_1_1_3:
     <<: *bench_crate
